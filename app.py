@@ -198,10 +198,10 @@ def gerar_graficos(estudantes):
     figura_distribuicao, eixo_distribuicao = plt.subplots(figsize=(8, 3.5))
     caixas = eixo_distribuicao.boxplot(
         [[notas[indice] for notas in notas_por_estudante] for indice in range(4)],
-        labels=AVALIACOES,
         patch_artist=True,
         showmeans=True,
     )
+    eixo_distribuicao.set_xticks(range(1, 5), AVALIACOES)
     for caixa, cor in zip(caixas["boxes"], CORES):
         caixa.set_facecolor(cor)
         caixa.set_alpha(0.35)
