@@ -29,6 +29,10 @@
           <span class="nav-icon" aria-hidden="true">♧</span>
           Estudantes
         </a>
+        <a class="nav-link" href="#graficos">
+          <span class="nav-icon" aria-hidden="true">▥</span>
+          Gráficos
+        </a>
       </nav>
 
       <div class="sidebar-note">
@@ -39,13 +43,14 @@
 
     <main class="main-content" id="painel">
       <header class="topbar">
-        <div class="breadcrumb">Painel <span>/</span> Visão geral</div>
+        <div class="breadcrumb">Painel <span>/</span> <span id="pagina-atual">Visão geral</span></div>
         <div class="profile">
           <span class="profile-avatar" aria-hidden="true">P</span>
           <span class="profile-name">Professor(a)</span>
         </div>
       </header>
 
+      <section id="visao-geral">
       <section class="page-heading">
         <div>
           <p class="eyebrow">SEU ESPAÇO DE ACOMPANHAMENTO</p>
@@ -153,7 +158,41 @@
           <div class="privacy-note"><span aria-hidden="true">⌑</span> Seus dados ficam salvos neste dispositivo.</div>
         </aside>
       </section>
-      
+      </section>
+
+      <section class="graficos-view" id="graficos" hidden>
+        <section class="page-heading graficos-heading">
+          <div>
+            <p class="eyebrow">DADOS QUE CONTAM HISTÓRIAS</p>
+            <h1>Gráficos <span class="heading-sparkle" aria-hidden="true">✳</span></h1>
+            <p class="page-description">Compare resultados e acompanhe o desempenho da turma.</p>
+          </div>
+          <div class="import-actions">
+            <label class="import-button" for="arquivo-notas"><span aria-hidden="true">↑</span> Importar CSV ou Excel</label>
+            <input class="visually-hidden" id="arquivo-notas" type="file" accept=".csv,.xlsx,.xls">
+            <a class="template-button" href="/modelo-notas.csv" download>↓ Baixar modelo CSV</a>
+          </div>
+        </section>
+        <p class="import-help">Use uma tabela com os cabeçalhos Nome, Avaliação 1, Avaliação 2, Avaliação 3 e Avaliação 4. São aceitos CSV e Excel (.xlsx, .xls).</p>
+        <p class="import-message" id="mensagem-importacao" role="status" hidden></p>
+        <section class="class-highlights" aria-label="Destaques da turma">
+          <article class="highlight-card"><span class="highlight-label">MÉDIA GERAL DA TURMA</span><strong id="media-graficos">—</strong><span class="highlight-caption">Média de todas as notas</span></article>
+          <article class="highlight-card"><span class="highlight-label">MAIOR NOTA</span><strong id="maior-nota">—</strong><span class="highlight-caption" id="detalhe-maior-nota">Aguardando estudantes</span></article>
+          <article class="highlight-card"><span class="highlight-label">MENOR NOTA</span><strong id="menor-nota">—</strong><span class="highlight-caption" id="detalhe-menor-nota">Aguardando estudantes</span></article>
+        </section>
+        <div class="charts-grid" id="grade-graficos">
+          <article class="panel chart-card"><p class="eyebrow">NOTA POR ESTUDANTE</p><h2>Comparação de notas</h2><div class="chart-container" id="grafico-comparacao"></div></article>
+          <article class="panel chart-card"><p class="eyebrow">DISTRIBUIÇÃO</p><h2>Desempenho por avaliação</h2><div class="chart-container" id="grafico-distribuicao"></div></article>
+          <article class="panel chart-card"><p class="eyebrow">MÉDIA INDIVIDUAL</p><h2>Média dos estudantes</h2><div class="chart-container" id="grafico-medias"></div></article>
+          <article class="panel chart-card"><p class="eyebrow">VISÃO DA TURMA</p><h2>Desempenho da turma</h2><div class="chart-container" id="grafico-turma"></div></article>
+        </div>
+        <div class="charts-empty" id="graficos-vazios" hidden>
+          <span class="empty-icon" aria-hidden="true">▥</span>
+          <strong>Adicione estudantes para ver os gráficos</strong>
+          <p>Cadastre estudantes na visão geral ou importe uma tabela para começar.</p>
+        </div>
+        <p class="chart-error" id="erro-graficos" role="alert" hidden></p>
+      </section>
     </main>
   </div>
 </body>
